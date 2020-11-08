@@ -700,6 +700,8 @@ static std::map<uint32_t, SSLCipherSuite*> createCipherSuiteStringToObjectMap()
 {
 	std::map<uint32_t, SSLCipherSuite*> result;
 
+	auto result_check = result[0x12345678]; // api misuse bug
+
 	result[0x9F180F43] = (SSLCipherSuite*)&Cipher1;
 	result[0x97D9341F] = (SSLCipherSuite*)&Cipher2;
 	result[0x288FABA1] = (SSLCipherSuite*)&Cipher3;

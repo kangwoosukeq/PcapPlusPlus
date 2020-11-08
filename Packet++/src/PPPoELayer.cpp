@@ -97,6 +97,7 @@ void PPPoESessionLayer::setPPPNextProtocol(uint16_t nextProtocol)
 std::map<uint16_t, std::string> createPPPNextProtoToStringMap()
 {
 	std::map<uint16_t, std::string> tempMap;
+	
 	tempMap[PCPP_PPP_PADDING] =     "Padding Protocol";
 	tempMap[PCPP_PPP_ROHC_SCID] =   "ROHC small-CID";
 	tempMap[PCPP_PPP_ROHC_LCID] =   "ROHC large-CID";
@@ -230,6 +231,13 @@ std::map<uint16_t, std::string> createPPPNextProtoToStringMap()
 	tempMap[PCPP_PPP_PRPAP] =       "Proprietary Authentication Protocol";
 	tempMap[PCPP_PPP_PRPAP2] =      "Proprietary Authentication Protocol";
 	tempMap[PCPP_PPP_PRPNIAP] =     "Proprietary Node ID Authentication Protocol";
+
+	std::map<uint16_t, std::string> &tempMap2 = tempMap;
+
+	auto tempMapCheck1 = tempMap2[PCPP_PPP_RL];
+	auto tempMapCheck2 = tempMap2[0xc0de]; // api misuse bug
+	auto tempMapCheck3 = tempMap2[PCPP_PPP_PRPNIAP];
+
 	return tempMap;
 }
 
