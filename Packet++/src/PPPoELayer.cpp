@@ -234,9 +234,9 @@ std::map<uint16_t, std::string> createPPPNextProtoToStringMap()
 
 	std::map<uint16_t, std::string> &tempMap2 = tempMap;
 
-	auto tempMapCheck1 = tempMap2[PCPP_PPP_RL];
-	auto tempMapCheck2 = tempMap2[0xc0de]; // api misuse bug
-	auto tempMapCheck3 = tempMap2[PCPP_PPP_PRPNIAP];
+	auto tempMapCheck1 = tempMap2[PCPP_PPP_RL];      // safe
+	auto tempMapCheck2 = tempMap2[0xc0de];           // api misuse bug
+	auto tempMapCheck3 = tempMap2[PCPP_PPP_PRPNIAP]; // safe
 
 	return tempMap;
 }
